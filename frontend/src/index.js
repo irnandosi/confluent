@@ -5,7 +5,7 @@ const App = () => {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
-    fetch('http://your-api/sales') // Ganti dengan URL REST API kamu
+    fetch('/sales') // Ganti dengan URL REST API kamu
       .then((res) => res.json())
       .then((data) => setSales(data))
       .catch((err) => console.error('Failed to fetch sales:', err));
