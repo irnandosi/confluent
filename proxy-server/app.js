@@ -6,7 +6,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const KSQLDB_URL = process.env.KSQLDB_URL || 'http://ksqldb-server:8088'; // Default internal svc
 
-app.use(cors());
+app.use(cors({
+  origin: '*', // Atur ke domain frontend kalau perlu
+  methods: ['GET'],
+  allowedHeaders: ['Content-Type']
+}));
 
 // Contoh query: Aggregated hourly sales per product
 app.get('/sales', async (req, res) => {
@@ -58,6 +62,6 @@ app.get('/sales', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Proxy server running on port ${PORT}`);
 });
