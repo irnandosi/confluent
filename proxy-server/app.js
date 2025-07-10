@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const KSQLDB_URL = process.env.KSQLDB_URL || 'http://ksqldb-server:8088'; // Default internal svc
+const KSQLDB_URL = process.env.KSQLDB_URL || 'http://ksqldb:8088'; // Default internal svc
 
 app.use(cors({
   origin: '*', // Atur ke domain frontend kalau perlu
