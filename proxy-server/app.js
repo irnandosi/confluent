@@ -27,7 +27,7 @@ app.get('/sales', async (req, res) => {
   };
 
   try {
-    const response = await fetch(`${KSQLDB_URL}/query`, {
+    const response = await fetch(`${KSQLDB_URL}/query-stream`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/vnd.ksql.v1+json' },
       body: JSON.stringify(ksqlQuery)
